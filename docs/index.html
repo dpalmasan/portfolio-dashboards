@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chile Labour Market Dashboards</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <h1>Chile Labour Market Dashboards</h1>
+      </div>
+      <button class="theme-toggle" type="button">Dark mode</button>
+    </header>
+    <main>
+      <p class="page-intro">
+        Two interactive dashboards built with <strong>Plotly.js</strong> over
+        INE Chile's National Employment Survey (ENE): mobile-trimester
+        occupancy rate and labour force, by region and sex, from 2010 to 2024.
+      </p>
+      <div class="home-grid">
+        <a class="card dashboard-card" href="dashboard-timeseries.html">
+          <h2>Time Series</h2>
+          <p>
+            Track occupancy rate and labour force over time, compare male vs
+            female trends, and rank all 16 regions at a glance.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Range slider</span>
+            <span class="tag">KPIs</span>
+            <span class="tag">Region ranking</span>
+          </div>
+        </a>
+        <a class="card dashboard-card" href="dashboard-geo.html">
+          <h2>Geographic</h2>
+          <p>
+            An interactive choropleth of Chile's regions with a snapshot
+            slider, region ranking, and a linked trend detail panel.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Choropleth map</span>
+            <span class="tag">Territorial filter</span>
+            <span class="tag">Map ↔ table</span>
+          </div>
+        </a>
+      </div>
+    </main>
+    <footer>
+      Data: Instituto Nacional de Estadísticas (INE) Chile — Encuesta Nacional
+      de Empleo (ENE). Region boundaries adapted from
+      <a href="https://github.com/caracena/chile-geojson" target="_blank" rel="noopener">caracena/chile-geojson</a>.
+    </footer>
+    <script src="assets/js/common.js"></script>
+    <script>
+      initTheme();
+    </script>
+  </body>
+</html>

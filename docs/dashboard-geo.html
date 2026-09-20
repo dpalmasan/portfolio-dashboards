@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Geographic Dashboard — Chile Labour Market</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <a href="index.html">← Chile Labour Market Dashboards</a>
+        <h1>Geographic</h1>
+      </div>
+      <nav>
+        <a class="nav-link" href="dashboard-timeseries.html">Time Series</a>
+        <a class="nav-link active" href="dashboard-geo.html">Geographic</a>
+        <button class="theme-toggle" type="button">Dark mode</button>
+      </nav>
+    </header>
+    <main>
+      <p class="page-intro">
+        Regional breakdown of occupancy rate and labour force. Click a region
+        on the map or in the ranking chart — or use the territorial filter —
+        to inspect its trend below.
+      </p>
+
+      <div class="card">
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label>Metric</label>
+            <div class="segmented" id="metric-toggle">
+              <button data-value="occupancy_rate" class="active">Occupancy rate</button>
+              <button data-value="labour_force">Labour force</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label>Sex</label>
+            <div class="segmented" id="sex-toggle">
+              <button data-value="M" class="active">Male</button>
+              <button data-value="F">Female</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label>Projection methodology</label>
+            <div class="segmented" id="projection-toggle">
+              <button data-value="2017" class="active">2017-based</button>
+              <button data-value="2002">2002-based</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label>Territorial filter</label>
+            <select id="region-select"></select>
+          </div>
+          <div class="filter-group" style="flex: 1; min-width: 220px">
+            <label>Snapshot period — <span id="period-label"></span></label>
+            <input type="range" id="period-slider" step="1" />
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-row" id="kpi-row"></div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h2>Map</h2>
+          <p class="card-subtitle">Click a region to see its trend below.</p>
+          <div id="geo-map" class="chart"></div>
+        </div>
+        <div class="card">
+          <h2>Ranking</h2>
+          <p class="card-subtitle">All regions at the selected snapshot period.</p>
+          <div id="ranking-chart" class="chart"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 id="detail-title">Nationwide total — trend detail</h2>
+        <p class="card-subtitle">Full history for the selected region, by sex.</p>
+        <div class="grid-2">
+          <div id="detail-chart" class="chart"></div>
+          <div>
+            <table class="data-table">
+              <caption id="detail-table-caption"></caption>
+              <thead>
+                <tr>
+                  <th>Period</th>
+                  <th>Male</th>
+                  <th>Female</th>
+                </tr>
+              </thead>
+              <tbody id="detail-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      Data: Instituto Nacional de Estadísticas (INE) Chile — Encuesta Nacional
+      de Empleo (ENE). Region boundaries adapted from
+      <a href="https://github.com/caracena/chile-geojson" target="_blank" rel="noopener">caracena/chile-geojson</a>.
+    </footer>
+    <script src="assets/vendor/plotly-2.35.2.min.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/dashboard-geo.js"></script>
+  </body>
+</html>

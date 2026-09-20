@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Time Series Dashboard — Chile Labour Market</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <a href="index.html">← Chile Labour Market Dashboards</a>
+        <h1>Time Series</h1>
+      </div>
+      <nav>
+        <a class="nav-link active" href="dashboard-timeseries.html">Time Series</a>
+        <a class="nav-link" href="dashboard-geo.html">Geographic</a>
+        <button class="theme-toggle" type="button">Dark mode</button>
+      </nav>
+    </header>
+    <main>
+      <p class="page-intro">
+        Occupancy rate and labour force by sex, region, and population
+        projection methodology. Use the range slider under the chart to zoom
+        into any period.
+      </p>
+
+      <div class="card">
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label>Metric</label>
+            <div class="segmented" id="metric-toggle">
+              <button data-value="occupancy_rate" class="active">Occupancy rate</button>
+              <button data-value="labour_force">Labour force</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label>Projection methodology</label>
+            <div class="segmented" id="projection-toggle">
+              <button data-value="2017" class="active">2017-based</button>
+              <button data-value="2002">2002-based</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label>Region</label>
+            <select id="region-select"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-row" id="kpi-row"></div>
+
+      <div class="card">
+        <h2>Trend over time</h2>
+        <p class="card-subtitle">
+          Drag the range slider or use the buttons above the chart to filter
+          the period shown.
+        </p>
+        <div id="main-chart" class="chart"></div>
+      </div>
+
+      <div class="card">
+        <h2>Latest snapshot by region</h2>
+        <p class="card-subtitle">
+          All 16 regions ranked by average of male and female values at the
+          most recent available period. Click a bar to focus that region
+          above.
+        </p>
+        <div id="ranking-chart" class="chart"></div>
+      </div>
+    </main>
+    <footer>
+      Data: Instituto Nacional de Estadísticas (INE) Chile — Encuesta Nacional
+      de Empleo (ENE).
+    </footer>
+    <script src="assets/vendor/plotly-cartesian-2.35.2.min.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/dashboard-timeseries.js"></script>
+  </body>
+</html>
